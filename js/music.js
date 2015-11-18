@@ -4,7 +4,11 @@ function MusicMenu(){
 	this.music = [
 		"audio/megalovania.ogg",
 		"audio/death_by_glamour.mp3",
-		"audio/ultralovania.mp3"
+		"audio/ultralovania.mp3",
+		"audio/megalovania_electro.mp3",
+		"audio/asgore.mp3",
+		"audio/spear_of_justice.mp3",
+		"audio/spider_dance.mp3",
 	];
 
 }
