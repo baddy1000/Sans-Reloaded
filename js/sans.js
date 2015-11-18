@@ -40,8 +40,8 @@ Sans.prototype.advanceTextA = function() {
 			} else if (maruju.rootScene.play_state == "gameover" ||
 					   maruju.rootScene.play_state == "not-playing"){
 		   		maruju.rootScene.play_state = "main-menu";
-				document.getElementById("menu").className = "";
-				document.getElementById("gameplay_area").className = "closed";
+				document.getElementById("gameplay_area").className = "closed";				
+				document.getElementById("select_main").className = "";
 			}
 		}
 	}
