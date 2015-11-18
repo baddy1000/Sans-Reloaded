@@ -25,26 +25,47 @@ var InputManager = {
         if ( keyboard.eventMatches(event, 'up') ||
 			 keyboard.eventMatches(event, 'w')) {
             event.preventDefault();
-			if (maruju.rootScene.play_state == "select-menu"){
+			if (maruju.rootScene.play_state == "main-menu"){
 				menu.moveUp();
-			} else {
+			} 
+			else if (maruju.rootScene.play_state == "music-menu"){
+				musicmenu.moveUp();
+			} 
+			else if (maruju.rootScene.play_state == "difficulty-menu"){
+				diffmenu.moveUp();
+			} 
+			
+			else {
 				heart.move("up");
 			}
         }
         if ( keyboard.eventMatches(event, 'down') ||
 			 keyboard.eventMatches(event, 's')) {
             event.preventDefault();
-			if (maruju.rootScene.play_state == "select-menu"){
+			if (maruju.rootScene.play_state == "main-menu"){
 				menu.moveDown();
+			}
+			else if (maruju.rootScene.play_state == "music-menu"){
+				musicmenu.moveDown();
+			} 
+			else if (maruju.rootScene.play_state == "difficulty-menu"){
+				diffmenu.moveDown();
 			}
         }
     	if ( keyboard.eventMatches(event, 'z') ||
 			 keyboard.eventMatches(event, 'space') ||
 	 		 keyboard.eventMatches(event, 'enter')) {
       		event.preventDefault();
-			if (maruju.rootScene.play_state == "select-menu"){
+			if (maruju.rootScene.play_state == "main-menu"){
 				menu.select();
-			} else {
+			} 
+			else if (maruju.rootScene.play_state == "music-menu"){
+				musicmenu.select();			
+			} 
+			else if (maruju.rootScene.play_state == "difficulty-menu"){
+				diffmenu.select();
+			}
+			else {
 				sans.advanceTextA();
 			}
     	}
@@ -97,3 +118,39 @@ function reset_game(difficulty) {
 		"Alright, here we go."
 	]);
 }
+
+function open_menu(state){
+	if (state == "main-menu"){
+		menu.updateHeartPosition();
+		document.getElementById("select_main").className = "";
+	}
+	else if (state == "music-menu"){
+		musicmenu.updateHeartPosition();
+		document.getElementById("select_music").className = "";
+	}
+	else if (state == "difficulty-menu"){
+		diffmenu.updateHeartPosition();
+		document.getElementById("select_difficulty").className = "";
+	}
+}
+
+function close_menu(state){
+	if (state == "main-menu"){
+		document.getElementById("select_main").className = "closed";
+	}
+	else if (state == "music-menu"){
+		document.getElementById("select_music").className = "closed";
+	}
+	else if (state == "difficulty-menu"){
+		document.getElementById("select_difficulty").className = "closed";
+	}
+}
+
+function set_state(oldstate, newstate){
+
+	close_menu(oldstate);
+	maruju.rootScene.setState(newstate);
+	open_menu(newstate);
+}
+
+

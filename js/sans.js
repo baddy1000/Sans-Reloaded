@@ -33,14 +33,14 @@ Sans.prototype.advanceTextA = function() {
 			this.current_text = "";
 			this.hideSpeechBubble();
 			if (maruju.rootScene.play_state == "intro"){
-				maruju.rootScene.play_state = "select-menu";
-	 			document.getElementById("select_difficulty").className = "";
-			} else if (maruju.rootScene.play_state == "preplaying"){
+				maruju.rootScene.play_state = "main-menu";
+	 			document.getElementById("select_main").className = "";
+			}else if (maruju.rootScene.play_state == "preplaying"){
 				maruju.rootScene.play_state = "playing";
 			} else if (maruju.rootScene.play_state == "gameover" ||
 					   maruju.rootScene.play_state == "not-playing"){
-		   		maruju.rootScene.play_state = "select-menu";
-				document.getElementById("select_difficulty").className = "";
+		   		maruju.rootScene.play_state = "main-menu";
+				document.getElementById("menu").className = "";
 				document.getElementById("gameplay_area").className = "closed";
 			}
 		}

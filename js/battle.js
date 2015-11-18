@@ -81,7 +81,7 @@ BattleScene.prototype.update = function(delta) {
 
 		if (this.final_message == false){
 			this.final_message = true;
-			document.getElementById("bgm1").pause();
+			document.getElementById("bgm").pause();
 			sans.sendGameOverMessage();
 		}
 
@@ -104,6 +104,10 @@ BattleScene.prototype.clearAllBones = function() {
 		this.bone_groups[a].clearBones();
 	}
 };
+
+BattleScene.prototype.setState = function(name){
+this.play_state = name;
+}
 
 BattleScene.prototype.resetGame = function(diff_level) {
 	this.clearAllBones();
@@ -130,6 +134,7 @@ BattleScene.prototype.resetGame = function(diff_level) {
 			heart.tolerance = 2;
 			this.play_speed = 1;
 			document.getElementById("love").innerHTML = "10";
+
 			break;
 		case "hard":
 			heart.tolerance = 2;
@@ -139,7 +144,7 @@ BattleScene.prototype.resetGame = function(diff_level) {
 	}
 	document.getElementById("select_difficulty").className = "closed";
 	document.getElementById("gameplay_area").className = "";
-	document.getElementById("bgm1").currentTime = 0;
-	document.getElementById("bgm1").play();
+	document.getElementById("bgm").currentTime = 0;
+	document.getElementById("bgm").play();
 	document.activeElement.blur();
 }

@@ -65,6 +65,33 @@ div#select_difficulty{
 
 }
 
+div#select_music{
+	transition: all 0.5s ease;
+	overflow: hidden;
+	height: 200px;
+	width: 600px;
+	margin: auto;
+
+}
+
+div#select_music.closed{
+	height: 0;
+
+}
+
+div#select_main{
+	transition: all 0.5s ease;
+	overflow: hidden;
+	height: 200px;
+	width: 600px;
+	margin: auto;
+}
+
+div#select_main.closed{
+	height: 0;
+}
+
+
 div#select_difficulty.closed{
 	height: 0;
 
@@ -75,23 +102,23 @@ div#select_text{
 	margin-bottom: 4px;
 }
 
-div.diff-option{
+div.menu-bullet{
 	text-align: left;
 	position: relative;
 	left: 40px;
 }
 
-div.diff-option.hidden{
+div.menu-bullet.hidden{
 	display: none;
 }
 
-div.diff-option::before{
+div.menu-bullet::before{
 	content: "*";
 	position: absolute;
 	left: -32px;
 }
 
-div.sel.diff-option::before{
+div.sel.menu-bullet::before{
 	content: url('../img/heart.png');
 	position: absolute;
 	width: 32px;
@@ -201,3 +228,4 @@ a{
 a:hover{
 	color: #33cccc;
 }
+
