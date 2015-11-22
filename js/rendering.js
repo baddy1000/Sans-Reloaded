@@ -49,6 +49,13 @@ SceneContext.prototype = {
 		this.getScene().add(spr);
 		return spr;
 	},
+	addBGSprite:function(file) {
+		var tex = this.loadTexture(file);
+		var mat = new THREE.SpriteMaterial({map: tex, color: 0xffffff, opacity: 0.35});
+		var spr = new THREE.Sprite(mat);
+		this.getScene().add(spr);
+		return spr;
+	},
 	addNode:function(node) {
 		if (node instanceof Node)
 			this.root.addChild(node);
@@ -63,15 +70,16 @@ SceneContext.prototype = {
 	},
 	root: new Node(null, this),
 	child: null,
-	camera: new THREE.OrthographicCamera(0, 320, 0, 120, 1, 32),
+	camera: new THREE.OrthographicCamera(-320, 320, -120, 120, 1, 32),
 	renderScene: new THREE.Scene()
 };
 
 var RenderContext = function(width, height) {
 	// get a webgl context if possible
-	this.renderer = new THREE.WebGLRenderer();
+	this.renderer = new THREE.WebGLRenderer({alpha: true});
 	this.renderer.setSize(width, height);
 	this.renderer.domElement.className = "gamespace";
+	this.renderer.setClearColor(0x000000, 0.66);
 	console.log(this.renderer);
 };
 

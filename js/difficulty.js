@@ -5,7 +5,8 @@ function DiffMenu(){
 	this.difficulty = [
 		"easy",
 		"medium",
-		"hard"
+		"hard",
+		"progressive"
 	];
 
 }

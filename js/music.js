@@ -9,6 +9,7 @@ function MusicMenu(){
 		"audio/asgore.mp3",
 		"audio/spear_of_justice.mp3",
 		"audio/spider_dance.mp3",
+		"audio/press_start.mp3",
 	];
 
 }
@@ -30,7 +31,7 @@ MusicMenu.prototype.moveDown = function() {
 }
 
 MusicMenu.prototype.select = function() {
-		document.getElementById("bgm").src = this.music[this.current_music];
+		audio.src = this.music[this.current_music];
 		set_state("music-menu", "main-menu");
 }
 

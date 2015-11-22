@@ -69,7 +69,9 @@ var InputManager = {
 				sans.advanceTextA();
 			}
     	}
-		if ( keyboard.eventMatches(event, 'x')) {
+		if ( keyboard.eventMatches(event, 'shift') ||
+			 keyboard.eventMatches(event, 'x'))		
+		{
 			event.preventDefault();
 			sans.advanceTextB();
 		}
@@ -78,6 +80,7 @@ var InputManager = {
 	handleReleaseInput: function(event) {
 		if ( keyboard.eventMatches(event, 'z') ||
 	 		 keyboard.eventMatches(event, 'x') ||
+	 		 keyboard.eventMatches(event, 'shift') ||
 	 	     keyboard.eventMatches(event, 'space') ) {
 			event.preventDefault();
 		}

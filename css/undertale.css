@@ -43,12 +43,14 @@ html, body {
 	width: 640px;
 	height: 240x;
 	margin: auto;
-	padding: 4px;
-	background-color: white;
+	padding: 0px;
+	border-style: solid;
+	border-width: 5px;
+	border-color: white;
 }
 
 canvas{
-	background-color: black;
+
 	}
 
 img.sans{
@@ -59,41 +61,61 @@ img.sans{
 div#select_difficulty{
 	transition: all 0.5s ease;
 	overflow: hidden;
-	height: 200px;
-	width: 600px;
+	height: auto;
+	width: 500px;
 	margin: auto;
+	background-color: rgba(0, 0, 0, 0.6);
+	border-style: solid;
+	border-width: 5px;
+	border-color: white;
+	padding: 10px;
 
 }
 
 div#select_music{
 	transition: all 0.5s ease;
 	overflow: hidden;
-	height: 400px;
-	width: 600px;
+	height: auto;
+	width: 500px;
 	margin: auto;
+	background-color: rgba(0, 0, 0, 0.6);
+	border-style: solid;
+	border-width: 5px;
+	border-color: white;
+	padding: 10px;
 
 }
 
 div#select_music.closed{
 	height: 0;
-
-}
+	border-width: 0px;
+	padding: 0px;
+	}
 
 div#select_main{
 	transition: all 0.5s ease;
 	overflow: hidden;
-	height: 200px;
-	width: 600px;
+	height: auto;
+	padding: 10px;
+	width: 500px;
 	margin: auto;
+	background-color: rgba(0, 0, 0, 0.6);
+	border-style: solid;
+	border-width: 5px;
+	border-color: white;
 }
 
 div#select_main.closed{
 	height: 0;
+	border-width: 0px;
+	padding: 0px;
 }
 
 
 div#select_difficulty.closed{
 	height: 0;
+	border-width: 0px;
+	padding: 0px;
 
 }
 
@@ -105,7 +127,7 @@ div#select_text{
 div.menu-bullet{
 	text-align: left;
 	position: relative;
-	left: 40px;
+	left: 50px;
 }
 
 div.menu-bullet.hidden{
@@ -133,7 +155,7 @@ div.sel.menu-bullet::before{
 div#gameplay_area{
 	transition: all 0.5s ease;
 	overflow: hidden;
-	height: 400px;
+	height: 350px;
 }
 
 div#gameplay_area.closed{
@@ -161,17 +183,20 @@ span.tag{
 div#hp_bar{
 	display: inline-block;
 	position: relative;
-	top: 3px;
-	width: 20px;
-	height: 25px;
-	background-color: red;
+	top: 5px;
+	width: 60px;
+	height: 20px;
+	background: linear-gradient(to right, rgb(175, 0, 0),  rgb(255, 0, 0));
+	border-style: solid;
+	border-width: 5px;
+	border-color: white;
 }
 
 div#hp_yellow_bar{
 	position: absolute;
-	width: 40px;
-	height: 25px;
-	background-color: yellow;
+	width: 60px;
+	height: 20px;
+	background: linear-gradient(to right, rgb(196, 115, 33),  rgb(255, 238, 0));
 }
 
 div#speech_bubble{
@@ -182,7 +207,7 @@ div#speech_bubble{
 	width: 300px;
 	height: 200px;
 	border-radius: 16px;
-	padding: 32px;
+	padding: 16px;
 	background-color: white;
 	color: black;
 	font-family: Comic Sans MS, "Comic Relief", sans-serif;
@@ -201,13 +226,19 @@ div.bottom-credits{
 	text-align: center;
 	font-size: 12px;
 	line-height: 15px;
-	height: 24px;
+	height: 20px;
 	bottom: 0;
-	left: calc(50% - 210px);
-	width: 420px;
+	left: calc(50% - 268px);
+	width: 522px;
 	padding: 8px 0;
 	overflow: hidden;
 	transition: all 0.3s ease;
+	background-color: rgba(0, 0, 0, 0.6);
+	
+	border-style: solid;
+	border-width: 5px;
+	border-color: white;
+	border-bottom: none;
 }
 
 
@@ -217,7 +248,7 @@ div.bottom-credits span{
 
 
 div.bottom-credits:hover{
-	height: 160px;
+	height: 80px;
 }
 
 a{
@@ -228,4 +259,8 @@ a{
 a:hover{
 	color: #33cccc;
 }
-
+/*
+div#mp3_player{ width:500px; height:60px; background:#000; padding:5px; margin:50px auto; }
+div#mp3_player > div > audio{  width:500px; background:#000; float:left;  }
+div#mp3_player > canvas{ width:500px; height:30px; background:#002D3C; float:left; }
+*/

@@ -20,7 +20,8 @@ function Bone(scene, sprite_url, props) {
 
 }
 
-Bone.prototype.setColour = function(colour) {
+Bone.prototype.setColour = function(colour) //sets bone color
+{
 	this.colour = colour;
 	switch (this.colour) {
 		case "white":
@@ -32,12 +33,14 @@ Bone.prototype.setColour = function(colour) {
 	}
 }
 
-Bone.prototype.update = function(delta) {
+Bone.prototype.update = function(delta) //updates bone position
+{
 	this.pos_x += this.vel_x * delta;
 	this.sprite.position.set(this.pos_x, this.pos_y, 3);
 }
 
-Bone.prototype.collidesWithHeart = function() {
+Bone.prototype.collidesWithHeart = function() //checks collision with bone
+{
 	if (heart.pos_x + heart.tolerance > this.pos_x - this.width / 2 &&
 	    heart.pos_x - heart.tolerance < this.pos_x + this.width / 2 &&
 		heart.pos_y + heart.tolerance > this.pos_y - this.height / 2 &&
@@ -57,7 +60,8 @@ Bone.prototype.collidesWithHeart = function() {
 	return false;
 }
 
-function createBonesFromBoneSet(scene, bone_set) {
+function createBonesFromBoneSet(scene, bone_set) //creates bones from bone set
+{
 	var bones = [];
 	console.log(bone_set);
 	for (var a = 0; a < bone_set.length; ++a) {
@@ -91,7 +95,7 @@ function BoneGroup(scene, bone_set, elapsed_time) {
 	if (elapsed_time > 0){
 		this.update(elapsed_time);
 	}
-
+	maruju.rootScene.check_wave_counter();
 }
 
 BoneGroup.prototype.collidesWithHeart = function() {
@@ -109,17 +113,38 @@ BoneGroup.prototype.update = function(delta) {
 		this.bones[a].update(delta);
 	}
 	this.elapsed_time += delta;
-
+/*
 	if (this.elapsed_time > this.next_time && this.next_sent == false) {
 		this.next_sent = true;
-		this.scene.sendNewBones(bone_sets[this.next_bone_sets[Math.floor(this.next_bone_sets.length * Math.random())]], this.elapsed_time - this.next_time);
+		if (maruju.rootScene.debug_mode == true) 
+		{
+			this.scene.sendNewBones(maruju.rootScene.debug_set, this.elapsed_time - this.next_time);		
+			return;
+		}
+		else 
+		{
+			this.scene.sendNewBones(bone_sets[this.next_bone_sets[Math.floor(this.next_bone_sets.length * Math.random())]], this.elapsed_time - this.next_time);		
+		}
 	}
 
 	if (this.elapsed_time > this.delete_time) {
 		this.clearBones();
-		this.completed = true;
+		this.completed = true;	
 	}
-
+*/	
+	if (this.elapsed_time > this.delete_time && this.next_sent == false) {
+		this.next_sent = true;
+		if (maruju.rootScene.debug_mode == true) 
+		{
+			this.scene.sendNewBones(maruju.rootScene.debug_set, this.elapsed_time - this.delete_time);
+		}
+		else 
+		{
+			this.scene.sendNewBones(bone_sets[this.next_bone_sets[Math.floor(this.next_bone_sets.length * Math.random())]], this.elapsed_time - this.delete_time);		
+		}
+		this.clearBones();
+		this.completed = true;	
+	}
 }
 
 BoneGroup.prototype.clearBones = function() {

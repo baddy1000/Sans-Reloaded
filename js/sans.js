@@ -108,8 +108,9 @@ Sans.prototype.sendGameOverMessage = function() {
 		]);
 	} else {
 		this.queueText([
-			"You gotta learn when to <font color=#ff0000>QUIT</font>.",
+			"You gotta learn when to<font color=#ff0000> QUIT.",
 			"And that day's <font color=#ff0000>TODAY</font>!",
 		]);
 	}
 };
+

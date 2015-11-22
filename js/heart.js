@@ -8,24 +8,24 @@ function Heart() {
 
 	this.sprite = null;
 
-	this.board_x = 320;
-	this.board_y = 120;
+	this.board_x = 640;
+	this.board_y = 240;
 
 	this.pos_x = 160;
-	this.pos_y = 112;
+	this.pos_y = 0;
 
 	this.vel_x = 0;
 	this.vel_y = 0; // vel_x is never affected.
 
-	this.size_x = 16;
-	this.size_y = 16;
+	this.size_x = 32;
+	this.size_y = 32;
 
-	this.x_movement_velocity = 160;
-	this.y_movement_velocity = 160;
-	this.gravity = 320; /* 360 pixels per second squared; subject to change */
+	this.x_movement_velocity = 320;
+	this.y_movement_velocity = 320;
+	this.gravity = 640; /* 360 pixels per second squared; subject to change */
 
-	this.jump_height = 30;
-	this.max_jump_height = 30;
+	this.jump_height = 60;
+	this.max_jump_height = 60;
 
 	this.h_move_state = "none";
 	this.v_move_state = "none";
@@ -38,7 +38,7 @@ function Heart() {
 		/* resolve moving. */
 		if (this.h_move_state == "left") {
 			this.vel_x = -this.x_movement_velocity;
-			this.pos_x = Math.max(0 + this.size_y / 2, this.pos_x - this.x_movement_velocity * delta);
+			this.pos_x = Math.max(-320 + this.size_y / 2, this.pos_x - this.x_movement_velocity * delta);
 		} else if (this.h_move_state == "right") {
 			this.vel_x = this.x_movement_velocity;
 			this.pos_x = Math.min(320 - this.size_y / 2, this.pos_x + this.x_movement_velocity * delta);
