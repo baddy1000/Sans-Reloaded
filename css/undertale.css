@@ -1,7 +1,7 @@
 @import url("webfont.css");
 
 html, body {
-	
+	position: relative;
 /*	background-image: url("../img/background.jpg");
 	background-repeat: no-repeat;
 	background-position: center top;
@@ -238,7 +238,6 @@ div.bottom-credits{
 	border-style: solid;
 	border-width: 5px;
 	border-color: white;
-	border-bottom: none;
 }
 
 
