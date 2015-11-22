@@ -227,7 +227,7 @@ div.bottom-credits{
 	font-size: 12px;
 	line-height: 15px;
 	height: 20px;
-	bottom: 0;
+	bottom: 0px;
 	left: calc(50% - 268px);
 	width: 522px;
 	padding: 8px 0;
