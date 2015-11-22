@@ -159,7 +159,7 @@ BattleScene.prototype.resetGame = function(diff_level) {
 			document.getElementById("love").innerHTML = "99";
 			break;
 		case "progressive":
-			heart.tolerance = 0;
+			heart.tolerance = 2;
 			this.play_speed = 1;
 			document.getElementById("love").innerHTML = "1";
 			break;
