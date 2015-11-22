@@ -41,10 +41,10 @@ Bone.prototype.update = function(delta) //updates bone position
 
 Bone.prototype.collidesWithHeart = function() //checks collision with bone
 {
-	if (heart.pos_x + heart.tolerance > this.pos_x - this.width / 2 &&
-	    heart.pos_x - heart.tolerance < this.pos_x + this.width / 2 &&
-		heart.pos_y + heart.tolerance > this.pos_y - this.height / 2 &&
-		heart.pos_y - heart.tolerance < this.pos_y + this.height / 2) {
+	if (heart.pos_x + heart.tolerance > this.pos_x - this.width / 1.95 &&
+	    heart.pos_x - heart.tolerance < this.pos_x + this.width / 1.95 &&
+		heart.pos_y + heart.tolerance > this.pos_y - this.height / 1.95 &&
+		heart.pos_y - heart.tolerance < this.pos_y + this.height / 1.95) {
 
 		console.log(heart.vel_x, heart.vel_y);
 
